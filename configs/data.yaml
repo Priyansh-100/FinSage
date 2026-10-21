@@ -1,0 +1,40 @@
+# Data configuration for Financial PhraseBank
+data:
+  # Dataset variant: "50Agree", "75Agree", "100Agree"
+  variant: "50Agree"
+  
+  # Data directory (relative to project root or absolute path)
+  data_dir: "data/raw"
+  
+  # Train/validation/test split ratios (must sum to 1.0)
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  
+  # Random seed for reproducible splits
+  split_seed: 42
+  
+  # Preprocessing
+  preprocessing:
+    lowercase: true
+    remove_special_chars: true
+    remove_numbers: false
+    max_seq_length: 100
+    min_word_freq: 2
+  
+  # Vocabulary
+  vocab:
+    max_size: 20000
+    oov_token: "<OOV>"
+    pad_token: "<PAD>"
+  
+  # Class labels (Financial PhraseBank: negative, neutral, positive)
+  label_map:
+    "negative": 0
+    "neutral": 1
+    "positive": 2
+  
+  # DataLoader settings
+  batch_size: 32
+  shuffle_buffer: 1000
+  prefetch: true

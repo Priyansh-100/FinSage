@@ -1,0 +1,58 @@
+# Training configuration
+train:
+  # Training parameters
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: "adam"  # adam, rmsprop, sgd
+  
+  # Loss function
+  loss: "sparse_categorical_crossentropy"  # or "focal_loss"
+  focal_loss_gamma: 2.0
+  
+  # Class imbalance handling
+  class_weight:
+    enabled: true
+    method: "auto"  # auto, balanced, manual
+  
+  # Callbacks
+  callbacks:
+    early_stopping:
+      enabled: true
+      monitor: "val_macro_f1"
+      mode: "max"
+      patience: 7
+      min_delta: 0.001
+      restore_best_weights: true
+    model_checkpoint:
+      enabled: true
+      monitor: "val_macro_f1"
+      mode: "max"
+      save_best_only: true
+      save_weights_only: false
+    reduce_lr:
+      enabled: true
+      monitor: "val_loss"
+      factor: 0.5
+      patience: 3
+      min_lr: 1e-6
+  
+  # MLflow tracking
+  mlflow:
+    enabled: true
+    experiment_name: "finsage-sentiment"
+    tracking_uri: "file:./mlruns"
+    log_model: true
+    log_artifacts: true
+  
+  # Reproducibility
+  seed: 42
+  deterministic: true
+  
+  # Mixed precision (for GPU)
+  mixed_precision: false
+  
+  # Output directories
+  output_dir: "outputs"
+  checkpoint_dir: "checkpoints"
+  logs_dir: "logs"
