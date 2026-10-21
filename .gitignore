@@ -1,0 +1,55 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+sdist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+
+# Caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Generated outputs
+/mlruns/
+/outputs/
+/multirun/
+/checkpoints/
+/logs/
+/result/
+/test_outputs/
+/test_checkpoints/
+/test_logs/
+*.keras
+*.h5
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.log
+
+# Data
+/data/
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDEs / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
