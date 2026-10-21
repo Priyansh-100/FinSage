@@ -94,4 +94,4 @@ Splits, tokenizer fitting, and model initialization are all seeded (`train.seed`
 
 ## License
 
-This project is intended for academic coursework (CA1).
+Released under the [MIT License](LICENSE).
